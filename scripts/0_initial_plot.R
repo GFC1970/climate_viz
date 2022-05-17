@@ -60,8 +60,7 @@ temp_by_year_plot <- df %>%
   # Add geom as a column without legend
   # set the colour to be as a factor of the value
   geom_col(show.legend = FALSE,
-           aes(fill = factor(sign(annual))),
-           width = .6) +
+           aes(fill = factor(sign(annual)))) +
 
   # Add a horizontal line for zero mark on y axis
   geom_hline(yintercept = 0, colour = "white", size = 1) +
@@ -88,16 +87,19 @@ temp_by_year_plot <- df %>%
 
   # Set theme
   theme_minimal(base_size = 14,
-                base_family = "Roboto Condensed") +
+                base_family = "roboto") +
   theme(
     axis.line.x = element_line(colour = "grey40"),
     panel.grid = element_blank(),
     plot.title = element_textbox_simple(size = 28,
                                         family = "patua-one",
-                                        colour = "dodgerblue"),
+                                        colour = "steelblue",
+                                        margin = margin(b = 10)),
     plot.title.position = "plot",
-    plot.subtitle = element_textbox_simple(size = 18),
-    plot.caption = element_text(size = 10)
+    plot.subtitle = element_text(size = 18,
+                                 lineheight = 1.1),
+    plot.caption = element_text(size = 10,
+                                hjust = 0)
   )
 
 
